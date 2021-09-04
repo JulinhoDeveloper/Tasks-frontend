@@ -10,7 +10,7 @@ function App() {
    <Router>
      <Switch>
      <Route exact path="/" component={Login} />
-     <Route exact path="/nova-conta" component={NovaConta} />
+     <Route exact path="/novaconta" component={NovaConta} />
       <Route exact path="/projetos" component={Projetos} />
      </Switch>
    </Router>

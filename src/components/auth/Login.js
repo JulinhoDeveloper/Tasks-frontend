@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-
-
+import { Link} from 'react-router-dom';
 const Login = () => {
 
     // State para inuciar a sessao
@@ -22,6 +21,10 @@ const Login = () => {
     //usuário iniciar sessão
     const onSubmit = e =>{
         e.preventDefault();
+
+        // validar campos vazios
+
+
     }
 
     return(
@@ -58,6 +61,10 @@ const Login = () => {
                         <input type="submit" className="btn btn-primario btn-block" value="Acessar" />
                     </div>
                 </form>
+
+                <Link to={'/novaconta'} className="enlace-cuenta">
+                   Cadastrar
+                </Link>
             </div>
         </div>
     );
