@@ -1,11 +1,36 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Tarefa from './Tarefa';
 
 
-const FormTarefa = () => {
+
+const ListarTarefas = () => {
+
+    const tarefasProjeto =  [
+        {nome: 'Eligir Plataforma', estado:true},
+        {nome: 'Eligir Plataforma', estado:false}
+
+];
 
     return (
-        <div></div>
-    )
+        <Fragment>
+            <h2>Projeto: Tarefas</h2>
+            <ul className = "Listado-tareas">
+                {tarefasProjeto.length === 0
+                ?  (<li className="tarefa"><p>Não há tarefas</p></li>)
+                : tarefasProjeto.map(tarefa =>(
+                    <Tarefa
+                    tarefa={tarefa}
+                    />
+                ))
+                }
+                   <button type="button"
+             className="btn btn-eliminar">
+                Excluir Projeto &times;
+            </button>
+            </ul>
+         
+        </Fragment>
+    );
 }
 
-export default FormTarefa;
+export default ListarTarefas;
