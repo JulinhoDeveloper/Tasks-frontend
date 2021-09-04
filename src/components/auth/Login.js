@@ -1,14 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 
 const Login = () => {
-    const onChange = () => {
 
+    // State para inuciar a sessao
+    const [usuario, guardarUsuario] = useState({
+        email: '',
+        password: ''
+    });
+
+    
+    const {email, password} = usuario;
+
+    const onChange = e => {
+        guardarUsuario({
+            ...usuario,
+            [e.target.name] : e.target.value
+        })
     }
+
+    //usuário iniciar sessão
+    const onSubmit = e =>{
+        e.preventDefault();
+    }
+
     return(
         <div className="form-usuario">
             <div className="contenedor-form sombra-dark">
                 <h1>Efetuar Login</h1>
-                <form>
+                <form
+                onSubmit={onSubmit}
+                >
                     <div className="campo-form">
                     <label htmlFor="email">Email</label>
                     <input 
@@ -16,6 +38,7 @@ const Login = () => {
                       id="email"
                       name="email"
                       placeholder="Digite o email"
+                      value={email}
                       onChange={onChange}
                     />
                     </div>
@@ -27,6 +50,7 @@ const Login = () => {
                       id="password"
                       name="password"
                       placeholder="Digite sua senha"
+                      value={password}
                       onChange={onChange}
                     />
                     </div>
